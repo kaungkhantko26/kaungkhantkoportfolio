@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Project Gallery | Kaung Khant Ko</title>
+  <meta name="description" content="Museum-style gallery showcasing Kaung Khant Ko's design projects." />
+  <meta name="keywords" content="KaungKhantKo, gallery, graphic design, branding, poster design" />
+  <meta name="author" content="Kaung Khant Ko" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://kaungkhantko.top/gallery.html" />
+
+  <meta property="og:title" content="Project Gallery | Kaung Khant Ko" />
+  <meta property="og:description" content="Museum-style gallery showcasing Kaung Khant Ko's design projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kaungkhantko.top/gallery.html" />
+  <meta property="og:image" content="https://kaungkhantko.top/profile.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+</head>
+
+<body class="gallery-page">
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Kaung Khant Ko home">
+        <img src="favicon.png" alt="Kaung Khant Ko logo" class="brand-logo" width="40" height="40" loading="eager"
+          decoding="async" />
+        <span>Kaung Khant Ko</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="gallery" class="section">
+      <div class="container" data-animate>
+        <div class="section-head">
+          <h2>Project Gallery</h2>
+          <a class="secondary-button" href="Po1.pdf" download>Download PDF</a>
+        </div>
+        <div class="museum-wall">
+          <div class="museum-grid">
+            <figure class="art-piece" style="--art-image: url('gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg');">
+              <button class="art-frame art-trigger" type="button" aria-label="Open Portrait Showcase">
+                <div class="art-image" role="img" aria-label="Portrait showcase"></div>
+                <img class="art-print" src="gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg"
+                  alt="Monster Energy Drink Manipulation" loading="lazy" decoding="async" />
+              </button>
+              <figcaption class="art-label">
+                <span class="art-title">Monster Energy Drink Manipulation</span>
+                <span class="art-meta">Nomination in MAP</span>
+                <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
+              </figcaption>
+            </figure>
+
+            <figure class="art-piece" style="--art-image: url('gallery/Photoshop.jpg');">
+              <button class="art-frame art-trigger" type="button" aria-label="Open Photoshop Study">
+                <div class="art-image" role="img" aria-label="Photoshop design"></div>
+                <img class="art-print" src="gallery/Photoshop.jpg" alt="Pyit Tine htaung" loading="lazy"
+                  decoding="async" />
+              </button>
+              <figcaption class="art-label">
+                <span class="art-title">Pyit Tine htaung</span>
+                <span class="art-meta">Nomination in MAI.</span>
+                <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close preview">✕</button>
+      <div class="lightbox-frame">
+        <img class="lightbox-image" src="" alt="" />
+      </div>
+      <p class="lightbox-title" id="lightbox-title"></p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Kaung Khant Ko. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
