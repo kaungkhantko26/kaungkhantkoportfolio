@@ -41,32 +41,59 @@ if (typingName) {
   }
 }
 
-const tocLinks = document.querySelectorAll(".nav a");
-const tocSections = Array.from(tocLinks)
+const tocLinks = Array.from(document.querySelectorAll(".nav a"))
+  .filter(link => (link.getAttribute("href") || "").startsWith("#"));
+const tocSections = tocLinks
   .map(link => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
+const setActiveTocLink = id => {
+  tocLinks.forEach(link => link.classList.remove("active"));
+  if (!id) return;
+  const activeLink = document.querySelector(`.nav a[href="#${id}"]`);
+  if (activeLink) activeLink.classList.add("active");
+};
+
 tocLinks.forEach(link => {
   link.addEventListener("click", event => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
     event.preventDefault();
-    document.querySelector(link.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
+    target.scrollIntoView({ behavior: "smooth" });
   });
 });
 
-const tocObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
+const updateActiveFromScroll = () => {
+  if (!tocSections.length) return;
+  const offset = 120;
+  let activeId = null;
 
-      tocLinks.forEach(l => l.classList.remove("active"));
-      const activeLink = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
-      if (activeLink) activeLink.classList.add("active");
-    });
-  },
-  { threshold: 0.6 }
-);
+  tocSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= offset && rect.bottom > offset) {
+      activeId = section.id;
+    }
+  });
 
-tocSections.forEach(section => tocObserver.observe(section));
+  if (!activeId && window.scrollY < tocSections[0].offsetTop + offset) {
+    activeId = tocSections[0].id;
+  }
+
+  setActiveTocLink(activeId);
+};
+
+let tocRaf = null;
+const handleTocScroll = () => {
+  if (tocRaf) return;
+  tocRaf = requestAnimationFrame(() => {
+    updateActiveFromScroll();
+    tocRaf = null;
+  });
+};
+
+updateActiveFromScroll();
+window.addEventListener("scroll", handleTocScroll, { passive: true });
+window.addEventListener("resize", handleTocScroll);
 
 const skillBars = document.querySelectorAll(".progress-bar");
 
@@ -104,3 +131,57 @@ const skillObserver = new IntersectionObserver(
 );
 
 skillBars.forEach(bar => skillObserver.observe(bar));
+
+const lightbox = document.querySelector("#lightbox");
+const lightboxImage = document.querySelector(".lightbox-image");
+const lightboxTitle = document.querySelector(".lightbox-title");
+
+const openLightbox = (src, title) => {
+  if (!lightbox || !lightboxImage || !lightboxTitle) return;
+  lightboxImage.src = src;
+  lightboxImage.alt = title || "Project preview";
+  lightboxTitle.textContent = title || "";
+  lightbox.classList.add("active");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+};
+
+const closeLightbox = () => {
+  if (!lightbox) return;
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  if (lightboxImage) lightboxImage.src = "";
+};
+
+document.addEventListener("click", event => {
+  const trigger = event.target.closest(".art-trigger");
+  if (trigger) {
+    const figure = trigger.closest(".art-piece");
+    const bgValue = figure ? getComputedStyle(figure).getPropertyValue("--art-image") : "";
+    const srcMatch = bgValue.match(/url\((['"]?)(.*)\1\)/);
+    const src = srcMatch ? srcMatch[2] : "";
+    const title = figure ? figure.querySelector(".art-title")?.textContent.trim() : "";
+    if (src) openLightbox(src, title);
+    return;
+  }
+
+  if (event.target.closest("[data-lightbox-close]")) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && lightbox?.classList.contains("active")) {
+    closeLightbox();
+  }
+});
+
+const printButtons = document.querySelectorAll("[data-print]");
+if (printButtons.length) {
+  printButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      window.print();
+    });
+  });
+}
