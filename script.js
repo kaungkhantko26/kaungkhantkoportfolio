@@ -119,6 +119,13 @@ if (langButtons.length) {
   });
 }
 
+const registerServiceWorker = () => {
+  if (!("serviceWorker" in navigator)) return;
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+};
+
+registerServiceWorker();
+
 const updateAge = () => {
   const ageEl = document.querySelector("#age-value");
   if (!ageEl) return;
@@ -255,6 +262,13 @@ const animatedSections = document.querySelectorAll("[data-animate]");
 if (prefersReducedMotion) {
   animatedSections.forEach(section => section.classList.add("active"));
 } else {
+  animatedSections.forEach(section => {
+    const children = Array.from(section.children);
+    children.forEach((child, index) => {
+      child.style.transitionDelay = `${Math.min(index * 0.08, 0.4)}s`;
+    });
+  });
+
   const revealObserver = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
