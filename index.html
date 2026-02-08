@@ -12,7 +12,7 @@
   <meta name="author" content="Kaung Khant Ko" />
   <meta name="robots" content="index, follow" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+    content="default-src 'self'; img-src 'self' data: https://upload.wikimedia.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -51,16 +51,20 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#skills">Top Skills</a>
-        <a href="#languages">Languages</a>
-        <a href="#programming">Programming</a>
-        <a href="#certificates">Certifications</a>
-        <a href="#honors">Honors</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#skills" data-i18n="nav_skills">Top Skills</a>
+        <a href="#languages" data-i18n="nav_languages">Languages</a>
+        <a href="#programming" data-i18n="nav_programming">Programming</a>
+        <a href="#certificates" data-i18n="nav_certifications">Certifications</a>
+        <a href="#honors" data-i18n="nav_honors">Honors</a>
+        <a href="#experience" data-i18n="nav_experience">Experience</a>
+        <a href="#education" data-i18n="nav_education">Education</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="lang-button">EN</button>
+        <button type="button" data-lang="zh" class="lang-button">中文</button>
+      </div>
     </div>
   </header>
 
@@ -68,9 +72,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy" data-animate>
-          <p class="eyebrow">Junior Graphic Designer · Yangon, Myanmar</p>
+          <p class="eyebrow" data-i18n="hero_eyebrow">Junior Graphic Designer · Yangon, Myanmar</p>
           <h1 class="typing-name" data-text="Kaung Khant Ko">Kaung Khant Ko</h1>
-          <p class="lead">
+          <p class="lead" data-i18n="hero_lead">
             Creative Junior Graphic Designer and student at Auston College with strong skills in visual design,
             branding, and programming. Experienced in social media, packaging, and poster design, with a strong
             interest in combining technology and design to create effective digital solutions. Brings a responsible
@@ -78,27 +82,27 @@
             skills.
           </p>
           <div class="hero-actions">
-            <a class="primary-button" href="mailto:kaungkkhant06@gmail.com">Email Me</a>
-            <a class="secondary-button" href="#contact">Contact Details</a>
-            <a class="secondary-button" href="gallery.html">View Gallery</a>
-            <a class="secondary-button" href="Po1.pdf" download>Download PDF</a>
+            <a class="primary-button" href="mailto:kaungkkhant06@gmail.com" data-i18n="cta_email">Email Me</a>
+            <a class="secondary-button" href="#contact" data-i18n="cta_contact">Contact Details</a>
+            <a class="secondary-button" href="gallery.html" data-i18n="cta_gallery">View Gallery</a>
+            <a class="secondary-button" href="Po1.pdf" download data-i18n="cta_download">Download PDF</a>
           </div>
           <div class="hero-stats">
             <div class="stat-card">
               <span class="stat-number">3</span>
-              <span class="stat-label">Top Skills</span>
+              <span class="stat-label" data-i18n="stat_skills">Top Skills</span>
             </div>
             <div class="stat-card">
               <span class="stat-number">5</span>
-              <span class="stat-label">Certifications</span>
+              <span class="stat-label" data-i18n="stat_certifications">Certifications</span>
             </div>
             <div class="stat-card">
               <span class="stat-number">4</span>
-              <span class="stat-label">Languages</span>
+              <span class="stat-label" data-i18n="stat_languages">Languages</span>
             </div>
             <div class="stat-card">
               <span class="stat-number">3</span>
-              <span class="stat-label">Honors</span>
+              <span class="stat-label" data-i18n="stat_honors">Honors</span>
             </div>
           </div>
         </div>
@@ -121,17 +125,18 @@
     <section id="about" class="section">
       <div class="container about-grid" data-animate>
         <div>
-          <h2>Summary</h2>
-          <p>
+          <h2 data-i18n="summary_title">Summary</h2>
+          <p data-i18n="summary_body">
             Creative Junior Graphic Designer and student at Auston College with strong skills in visual design,
             branding, and programming. Experienced in social media, packaging, and poster design, with a strong
             interest in combining technology and design to create effective digital solutions. Brings a responsible
             and reliable work ethic, strong creative problem solving abilities, and effective team collaboration
             skills.
           </p>
+          <p class="muted">Age <span id="age-value">—</span></p>
         </div>
         <div class="highlight-panel">
-          <h3>Focus Areas</h3>
+          <h3 data-i18n="focus_areas">Focus Areas</h3>
           <ul class="tags">
             <li>Visual Design</li>
             <li>Branding</li>
@@ -145,7 +150,7 @@
 
     <section id="skills" class="section">
       <div class="container" data-animate>
-        <h2>Top Skills</h2>
+        <h2 data-i18n="skills_title">Top Skills</h2>
         <ul class="tags">
           <li>Electronics</li>
           <li>Communication</li>
@@ -156,7 +161,7 @@
 
     <section id="languages" class="section">
       <div class="container" data-animate>
-        <h2>Languages</h2>
+        <h2 data-i18n="languages_title">Languages</h2>
         <ul class="tags">
           <li>Chinese (Limited Working)</li>
           <li>English (Professional Working)</li>
@@ -168,7 +173,7 @@
 
     <section id="programming" class="section">
       <div class="container" data-animate>
-        <h2>Programming Languages</h2>
+        <h2 data-i18n="programming_title">Programming Languages</h2>
         <ul class="tags">
           <li>Python</li>
           <li>Java</li>
@@ -184,8 +189,8 @@
     <section id="certificates" class="section">
       <div class="container" data-animate>
         <div class="section-head">
-          <h2>Certifications</h2>
-          <p class="muted">Professional learning and certification highlights.</p>
+          <h2 data-i18n="certifications_title">Certifications</h2>
+          <p class="muted" data-i18n="certifications_subtitle">Professional learning and certification highlights.</p>
         </div>
         <div class="card-grid">
           <article class="card">
@@ -209,7 +214,7 @@
 
     <section id="honors" class="section">
       <div class="container" data-animate>
-        <h2>Honors & Awards</h2>
+        <h2 data-i18n="honors_title">Honors & Awards</h2>
         <div class="card-grid">
           <article class="card">
             <h3>People's Choice Award</h3>
@@ -226,7 +231,7 @@
 
     <section id="experience" class="section">
       <div class="container" data-animate>
-        <h2>Experience</h2>
+        <h2 data-i18n="experience_title">Experience</h2>
         <article class="timeline-card">
           <div>
             <h3>Freelance Graphic Designer</h3>
@@ -257,7 +262,7 @@
 
     <section id="education" class="section">
       <div class="container" data-animate>
-        <h2>Education</h2>
+        <h2 data-i18n="education_title">Education</h2>
         <div class="card-grid two">
           <article class="card">
             <h3>Higher National Diploma in Computing (Network Engineering)</h3>
@@ -279,23 +284,35 @@
 
     <section id="contact" class="section">
       <div class="container" data-animate>
-        <h2>Contact</h2>
+        <h2 data-i18n="contact_title">Contact</h2>
         <div class="contact-grid">
-          <div class="contact-card">
-            <span>Mobile</span>
-            <strong>+959889750033</strong>
-          </div>
-          <a class="contact-card" href="mailto:kaungkkhant06@gmail.com">
-            <span>Email</span>
-            <strong>kaungkkhant06@gmail.com</strong>
+          <a class="contact-card icon-only" href="tel:+959889750033" aria-label="Mobile">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M6.6 2.9c-.6 0-1.2.3-1.6.8L3.5 6.1c-.5.7-.5 1.7 0 2.4l2.4 3.4c.5.7 1.4 1 2.2.8l1.8-.4c.9-.2 1.8.1 2.4.8l2.2 2.2c.7.7 1.7 1 2.7.7l3.1-.9c1.1-.3 1.7-1.4 1.4-2.5-1-3.5-3-6.7-5.7-9.4C13.3 2 10.1 0 6.6 2.9z" />
+              </svg>
+            </span>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/kaungkhantko06" target="_blank" rel="noopener noreferrer">
-            <span>LinkedIn</span>
-            <strong>linkedin.com/in/kaungkhantko06</strong>
+          <a class="contact-card icon-only" href="mailto:kaungkkhant06@gmail.com" aria-label="Email">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2.3v.4l8 5.2 8-5.2V7.3l-8 5.2-8-5.2z" />
+              </svg>
+            </span>
           </a>
-          <a class="contact-card" href="https://kaungkhantko.top" target="_blank" rel="noopener noreferrer">
-            <span>Portfolio</span>
-            <strong>kaungkhantko.top</strong>
+          <a class="contact-card icon-only" href="https://www.linkedin.com/in/kaungkhantko06" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3.5 9h3v11h-3V9zm7 0h2.9v1.5h.1c.4-.8 1.4-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.9V20h-3v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20h-3V9z" />
+              </svg>
+            </span>
+          </a>
+          <a class="contact-card icon-only" href="https://kaungkhantko.top" target="_blank" rel="noopener noreferrer" aria-label="Portfolio">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.8 9H16a15.6 15.6 0 0 0-1.3-5.1A8 8 0 0 1 19.8 11zM12 4c1.1 0 2.4 1.6 3.2 5H8.8c.8-3.4 2.1-5 3.2-5zM4.2 13H8c.2 1.9.7 3.6 1.4 5.1A8 8 0 0 1 4.2 13zm3.8-2H4.2a8 8 0 0 1 5.2-5.1A15.6 15.6 0 0 0 8 11zm1.8 2h4.4c-.2 1.7-.6 3.3-1.2 4.5-.7 1.3-1.5 2-2 2s-1.3-.7-2-2c-.6-1.2-1-2.8-1.2-4.5zm4.8 5.1c.7-1.5 1.2-3.2 1.4-5.1h3.8a8 8 0 0 1-5.2 5.1zm1.4-7.1H8.2c.2-1.7.6-3.3 1.2-4.5.7-1.3 1.5-2 2-2s1.3.7 2 2c.6 1.2 1 2.8 1.2 4.5z" />
+              </svg>
+            </span>
           </a>
         </div>
       </div>
@@ -307,6 +324,34 @@
       <p>© 2026 Kaung Khant Ko.</p>
     </div>
   </footer>
+
+  <div class="chatbot" id="chatbot-widget" aria-live="polite">
+    <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel"
+      aria-label="Open chat">
+      <svg class="chatbot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm-1.6 4.3h3.2V18h-3.2v-6.5z" />
+      </svg>
+    </button>
+    <div class="chatbot-panel" id="chatbot-panel" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-brand">
+          <img class="chatbot-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ef/OpenMoji-color_1F916.svg" alt="Chatbot logo" />
+          <div>
+            <p class="chatbot-title">Ask Kaung</p>
+            <p class="chatbot-subtitle">Offline guide about me and my work.</p>
+          </div>
+        </div>
+        <button class="chatbot-close" type="button" aria-label="Close chat">✕</button>
+      </div>
+      <div class="chatbot-messages" aria-live="polite"></div>
+      <form class="chatbot-form">
+        <input class="chatbot-input" type="text" name="message" autocomplete="off"
+          placeholder="Ask about me, skills, or works..." />
+        <button class="chatbot-send" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>

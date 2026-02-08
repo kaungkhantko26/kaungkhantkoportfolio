@@ -11,7 +11,7 @@
   <meta name="author" content="Kaung Khant Ko" />
   <meta name="robots" content="index, follow" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+    content="default-src 'self'; img-src 'self' data: https://upload.wikimedia.org; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -49,9 +49,13 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="#gallery">Gallery</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
       </nav>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="lang-button">EN</button>
+        <button type="button" data-lang="zh" class="lang-button">中文</button>
+      </div>
     </div>
   </header>
 
@@ -59,8 +63,8 @@
     <section id="gallery" class="section">
       <div class="container" data-animate>
         <div class="section-head">
-          <h2>Project Gallery</h2>
-          <a class="secondary-button" href="Po1.pdf" download>Download PDF</a>
+          <h2 data-i18n="gallery_title">Project Gallery</h2>
+          <a class="secondary-button" href="Po1.pdf" download data-i18n="cta_download">Download PDF</a>
         </div>
         <div class="museum-wall">
           <div class="museum-grid">
@@ -111,6 +115,34 @@
       <p>© 2026 Kaung Khant Ko. All rights reserved.</p>
     </div>
   </footer>
+
+  <div class="chatbot" id="chatbot-widget" aria-live="polite">
+    <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel"
+      aria-label="Open chat">
+      <svg class="chatbot-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5.2a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zm-1.6 4.3h3.2V18h-3.2v-6.5z" />
+      </svg>
+    </button>
+    <div class="chatbot-panel" id="chatbot-panel" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-brand">
+          <img class="chatbot-logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ef/OpenMoji-color_1F916.svg" alt="Chatbot logo" />
+          <div>
+            <p class="chatbot-title">Ask Kaung</p>
+            <p class="chatbot-subtitle">Offline guide about me and my work.</p>
+          </div>
+        </div>
+        <button class="chatbot-close" type="button" aria-label="Close chat">✕</button>
+      </div>
+      <div class="chatbot-messages" aria-live="polite"></div>
+      <form class="chatbot-form">
+        <input class="chatbot-input" type="text" name="message" autocomplete="off"
+          placeholder="Ask about me, skills, or works..." />
+        <button class="chatbot-send" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
