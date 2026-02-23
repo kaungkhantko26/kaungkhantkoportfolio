@@ -874,6 +874,90 @@ body.admin-signed-in .admin-form {
   margin-bottom: 0.6rem;
 }
 
+#certificates .card {
+  text-align: left;
+}
+
+#certificates .certificates-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.certificate-card {
+  position: relative;
+  padding: 1.4rem;
+  min-height: 220px;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(250, 251, 255, 0.92));
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.certificate-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 62, 140, 0.28);
+  box-shadow: 0 18px 38px rgba(16, 24, 40, 0.14);
+}
+
+.cert-tag {
+  align-self: flex-start;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.certificate-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.cert-meta {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.credential-link {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.58rem 0.95rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  background: rgba(59, 130, 246, 0.06);
+  color: #1e40af;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.credential-link:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #1d4ed8;
+}
+
+.credential-link:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.35);
+  outline-offset: 3px;
+}
+
 .timeline-card {
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.98), rgba(239, 233, 255, 0.92));
   border: 1px solid rgba(232, 62, 140, 0.16);
@@ -1233,6 +1317,184 @@ body.admin-signed-in .admin-form {
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
+}
+
+/* Professional visual system overrides */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-strong: #f0f4fb;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0f766e;
+  --accent-2: #1d4ed8;
+  --accent-3: #dbeafe;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
+}
+
+body {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(29, 78, 216, 0.08), transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(15, 118, 110, 0.08), transparent 35%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  line-height: 1.65;
+}
+
+.bg-orb {
+  opacity: 0.18;
+}
+
+.bg-grid {
+  opacity: 0.2;
+}
+
+.site-header {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.brand {
+  color: #0b1220;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.lead {
+  color: #334155;
+  font-size: 1.03rem;
+}
+
+.primary-button,
+.secondary-button {
+  letter-spacing: 0.01em;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+.primary-button::before,
+.secondary-button::before,
+.primary-button::after,
+.secondary-button::after {
+  content: none;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
+  color: #f8fafc;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.2);
+}
+
+.secondary-button {
+  background: #ffffff;
+  color: #1e293b;
+  border-color: rgba(30, 41, 59, 0.2);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+}
+
+.stat-card,
+.highlight-panel,
+.card,
+.timeline-card,
+.visit-card,
+.art-label,
+.museum-wall {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow);
+}
+
+.section h2 {
+  color: #0f172a;
+  margin-bottom: 0.9rem;
+}
+
+.section p,
+.timeline-date,
+.stat-label {
+  color: #475569;
+}
+
+.tags li,
+.tag-row span {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #334155;
+}
+
+.badge {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.contact-icon {
+  background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
+}
+
+#certificates .certificates-grid,
+#honors .honors-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+#honors .card {
+  text-align: left;
+}
+
+.honor-card {
+  position: relative;
+  min-height: 200px;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  padding: 1.4rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.honor-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0f766e, #1d4ed8);
+}
+
+.honor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+  border-color: rgba(29, 78, 216, 0.26);
+}
+
+.honor-tag {
+  align-self: flex-start;
+  padding: 0.24rem 0.64rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1e3a8a;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.honor-card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.honor-meta {
+  margin: 0;
+  color: #475569;
+  font-size: 0.92rem;
 }
 
 .lightbox-close {

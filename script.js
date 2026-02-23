@@ -177,16 +177,16 @@ const initChatbot = () => {
       return "Programming languages: Python, Java, JavaScript, HTML, CSS, Tailwind, and Bootstrap.";
     }
     if (query.includes("cert") || query.includes("certificate")) {
-      return "Certifications include Adobe Illustrator, Graphic Design Master Class, Security Principles, Adobe Photoshop, and EF SET English (B2).";
+      return "Certifications include Adobe Illustrator, Graphic Design Master Class, Security Principles, Adobe Photoshop, CodinGame Python 3, Ethical Hacker, and EF SET English (B2).";
     }
     if (query.includes("honor") || query.includes("award")) {
       return "Honors include People's Choice Award and nominations for MAI and MAP.";
     }
     if (query.includes("experience")) {
-      return "Experience includes freelance graphic design at ATTAM and junior graphic designer at Fuxing Brothers Company Ltd.";
+      return "Experience includes Student Ambassador at KBZPay, freelance graphic design at ATTAM, and junior graphic designer at Fuxing Brothers Company Ltd.";
     }
     if (query.includes("education")) {
-      return "Education: HND in Computing (Network Engineering) at Auston College, High School Diploma, and Wall Street English Level 20.";
+      return "Education: Higher National Diploma in Computer Science at Auston College, High School Diploma (Biology), and Diploma of English at Wall Street English Myanmar.";
     }
     if (query.includes("contact") || query.includes("email") || query.includes("phone")) {
       return "You can contact Kaung via email at kaungkkhant06@gmail.com or phone at +959889750033.";
