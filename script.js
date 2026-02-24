@@ -409,7 +409,8 @@ const initRotatingSlider = () => {
   const baseItems = Array.from(slider.querySelectorAll(".item"));
   if (!baseItems.length) return;
 
-  const minSlides = 8;
+  const isMobileViewport = window.matchMedia("(max-width: 600px)").matches;
+  const minSlides = isMobileViewport ? 5 : 8;
   if (baseItems.length < minSlides) {
     for (let i = baseItems.length; i < minSlides; i += 1) {
       const source = baseItems[i % baseItems.length];

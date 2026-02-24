@@ -1253,12 +1253,16 @@ body.admin-signed-in .admin-form {
   box-shadow: none;
 }
 
+.banner .slider .item .art-frame::after {
+  display: none;
+}
+
 .banner .slider .item .art-image {
   display: none;
 }
 
 .banner .slider .item .art-print {
-  display: block;
+  display: block !important;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1786,7 +1790,7 @@ body {
   .banner {
     --slider-w: clamp(96px, 30vw, 130px);
     --slider-h: clamp(138px, 42vw, 180px);
-    --ring-depth: clamp(102px, 26vw, 170px);
+    --ring-depth: clamp(138px, 34vw, 220px);
     --slider-top: 14%;
     min-height: clamp(420px, 62vh, 560px);
   }
@@ -1816,7 +1820,7 @@ body {
   .banner {
     --slider-w: 86px;
     --slider-h: 122px;
-    --ring-depth: 88px;
+    --ring-depth: 124px;
     --slider-top: 16%;
     min-height: clamp(360px, 56vh, 460px);
   }
