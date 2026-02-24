@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewSteps - Student Finance Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" />
+  <link rel="icon" type="image/png" href="NS.png" />
+  <link rel="stylesheet" href="newstep.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <div class="brand-row">
+        <img src="NS.png" alt="NewSteps logo" class="brand-logo" />
+        <p class="eyebrow">NewSteps</p>
+      </div>
+      <nav class="page-links" aria-label="Site navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="gallery.html">Gallery</a>
+      </nav>
+      <h1>Simple Student Money Planner</h1>
+      <p class="subtitle">Enter daily money in, daily spending out, and see clear monthly savings results.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card input-card">
+      <h2>Daily Inputs</h2>
+      <div class="grid">
+        <label>Daily Pocket Money (MMK)
+          <input type="number" id="income" min="0" step="1" placeholder="e.g. 8000" />
+        </label>
+
+        <label>Savings Goal Amount (MMK)
+          <input type="number" id="goal" min="0" step="1" placeholder="e.g. 500000" />
+        </label>
+
+        <label>Timeframe
+          <select id="timeframeType">
+            <option value="months">Months</option>
+            <option value="years">Years</option>
+          </select>
+        </label>
+
+        <label>Timeframe Value
+          <input type="number" id="timeframeValue" min="1" step="1" value="12" />
+        </label>
+
+        <label>Deadline (Months)
+          <input type="number" id="deadlineMonths" min="1" step="1" value="12" />
+        </label>
+      </div>
+
+      <h3>Daily Spending</h3>
+      <div class="grid expenses-grid">
+        <label>Snacks (MMK/day)
+          <input type="number" class="expense" id="snacks" min="0" step="1" value="0" />
+        </label>
+        <label>Transport (MMK/day)
+          <input type="number" class="expense" id="transport" min="0" step="1" value="0" />
+        </label>
+        <label>School Fees (MMK/day)
+          <input type="number" class="expense" id="schoolFees" min="0" step="1" value="0" />
+        </label>
+        <label>Mobile Top-up (MMK/day)
+          <input type="number" class="expense" id="mobile" min="0" step="1" value="0" />
+        </label>
+        <label>Gaming / Entertainment (MMK/day)
+          <input type="number" class="expense" id="entertainment" min="0" step="1" value="0" />
+        </label>
+        <label>Other (MMK/day)
+          <input type="number" class="expense" id="other" min="0" step="1" value="0" />
+        </label>
+      </div>
+
+      <div class="action-box">
+        <button id="calculateBtn" type="button" class="btn btn-primary">Calculate</button>
+        <button id="resetBtn" type="button" class="btn btn-secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="card slider-card">
+      <h2>Spending Reduction Test</h2>
+      <p class="muted">Use sliders to test how reducing spending changes your savings goal timeline.</p>
+      <div class="slider-grid">
+        <label>Snacks Reduction: <span id="snacksReductionValue">20%</span>
+          <input type="range" class="reduction" id="snacksReduction" min="0" max="80" step="1" value="20" />
+        </label>
+        <label>Transport Reduction: <span id="transportReductionValue">10%</span>
+          <input type="range" class="reduction" id="transportReduction" min="0" max="80" step="1" value="10" />
+        </label>
+        <label>School Fees Reduction: <span id="schoolFeesReductionValue">0%</span>
+          <input type="range" class="reduction" id="schoolFeesReduction" min="0" max="80" step="1" value="0" />
+        </label>
+        <label>Mobile Reduction: <span id="mobileReductionValue">10%</span>
+          <input type="range" class="reduction" id="mobileReduction" min="0" max="80" step="1" value="10" />
+        </label>
+        <label>Entertainment Reduction: <span id="entertainmentReductionValue">25%</span>
+          <input type="range" class="reduction" id="entertainmentReduction" min="0" max="80" step="1" value="25" />
+        </label>
+        <label>Other Reduction: <span id="otherReductionValue">10%</span>
+          <input type="range" class="reduction" id="otherReduction" min="0" max="80" step="1" value="10" />
+        </label>
+      </div>
+    </section>
+
+    <section class="card receipt-card">
+      <details class="optional-tools">
+        <summary>Optional: Import Receipt</summary>
+        <p class="muted">Drop a receipt image to auto-fill daily expense categories.</p>
+        <div id="receiptDropZone" class="receipt-dropzone" tabindex="0" aria-label="Receipt drop area">
+          <p>Drag & drop receipt image here</p>
+          <p class="muted">or</p>
+          <label class="receipt-upload-btn" for="receiptFile">Choose Receipt</label>
+          <input type="file" id="receiptFile" accept="image/*" hidden />
+        </div>
+        <label class="receipt-mode">
+          <input type="checkbox" id="receiptAddMode" />
+          Add to current values (unchecked = replace values)
+        </label>
+        <p id="receiptStatus" class="muted">No receipt imported yet.</p>
+      </details>
+    </section>
+
+    <section class="card results-card">
+      <h2>Results</h2>
+      <div class="scenario-grid">
+        <article class="scenario scenario--current">
+          <h3>Scenario A: Current Spending</h3>
+          <ul>
+            <li>Total Expenses (Monthly): <strong id="currentTotalExpenses">MMK 0</strong></li>
+            <li>Monthly Savings: <strong id="currentMonthlySavings">MMK 0</strong></li>
+            <li>Yearly Savings: <strong id="currentYearlySavings">MMK 0</strong></li>
+            <li>Time to Goal: <strong id="currentTimeToGoal">Not reachable</strong></li>
+          </ul>
+        </article>
+
+        <article class="scenario scenario--reduced">
+          <h3>Scenario B: Reduced Spending</h3>
+          <ul>
+            <li>Total Expenses (Monthly): <strong id="reducedTotalExpenses">MMK 0</strong></li>
+            <li>Monthly Savings: <strong id="reducedMonthlySavings">MMK 0</strong></li>
+            <li>Yearly Savings: <strong id="reducedYearlySavings">MMK 0</strong></li>
+            <li>Time to Goal: <strong id="reducedTimeToGoal">Not reachable</strong></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="advice" id="adviceMessage">Enter your values to see smart savings feedback.</div>
+      <div class="advice" id="lossAversionMessage">Loss aversion insight appears after entering daily income and spending.</div>
+      <div class="advice" id="smartGoalMessage">SMART goal analysis appears after entering goal, savings, and deadline.</div>
+      <div class="advice" id="moneyDrainMessage">Main expense drain analysis appears after entering expenses.</div>
+      <div class="advice" id="needsWantsMessage">Needs vs wants analysis appears after entering expenses.</div>
+      <div class="advice" id="personalityMessage">Financial personality appears after entering income and expenses.</div>
+      <div class="advice" id="behaviorTrendMessage">Behavior trend detection starts after at least 3 sessions.</div>
+
+      <h3>Goal Progress</h3>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-fill" id="goalProgress"></div>
+      </div>
+      <p class="muted" id="goalProgressText">0% of monthly goal pace achieved.</p>
+
+      <h3>Savings Projection</h3>
+      <div class="projection-grid">
+        <div class="projection-box"><span>1 Year</span><strong id="projection1y">MMK 0</strong></div>
+        <div class="projection-box"><span>3 Years</span><strong id="projection3y">MMK 0</strong></div>
+        <div class="projection-box"><span>5 Years</span><strong id="projection5y">MMK 0</strong></div>
+      </div>
+
+      <h3>Compound Growth Simulation (5% yearly increase)</h3>
+      <div id="compoundComparison" class="compound-comparison"></div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="newstep.js"></script>
+</body>
+</html>

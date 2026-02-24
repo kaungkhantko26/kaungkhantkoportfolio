@@ -1057,6 +1057,43 @@ body.admin-signed-in .admin-form {
   background: rgba(246, 242, 238, 0.9);
 }
 
+/* Base layer for 3D gallery page (adapted from requested base.css) */
+.gallery-page {
+  position: relative;
+  overflow-x: hidden;
+  background-color: #dfe7f4;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent 0 100px,
+      rgba(29, 78, 216, 0.08) 100px 101px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 100px,
+      rgba(15, 118, 110, 0.08) 100px 101px
+    ),
+    radial-gradient(circle at 18% 10%, rgba(29, 78, 216, 0.12), transparent 42%),
+    radial-gradient(circle at 82% 85%, rgba(15, 118, 110, 0.12), transparent 38%);
+}
+
+.gallery-page::before {
+  content: "";
+  position: fixed;
+  width: min(1400px, 92vw);
+  height: 88vh;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.65), transparent 65%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.35), rgba(219, 234, 254, 0.3));
+  filter: blur(0.4px);
+  border-radius: 36px;
+}
+
 .gallery-hero {
   padding: 4.5rem 0 2.5rem;
 }
@@ -1153,12 +1190,123 @@ body.admin-signed-in .admin-form {
   pointer-events: none;
 }
 
+.gallery-free {
+  margin-top: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: visible;
+}
+
 .museum-grid {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   z-index: 1;
+}
+
+.banner {
+  --slider-w: clamp(120px, 18vw, 220px);
+  --slider-h: clamp(165px, 24vw, 300px);
+  --ring-depth: clamp(170px, 30vw, 520px);
+  --slider-top: clamp(8%, 9vw, 12%);
+  width: 100%;
+  min-height: clamp(520px, 82vh, 860px);
+  text-align: center;
+  overflow: visible;
+  position: relative;
+  border-radius: 24px;
+}
+
+.banner .slider {
+  position: absolute;
+  top: var(--slider-top);
+  width: var(--slider-w);
+  height: var(--slider-h);
+  left: calc(50% - (var(--slider-w) / 2));
+  transform-style: preserve-3d;
+  transform: perspective(1000px) translateZ(0);
+  animation: autoRun 16s linear infinite;
+  z-index: 2;
+  will-change: transform;
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0;
+  transform:
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(var(--ring-depth));
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.banner .slider .item .art-frame {
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.banner .slider .item .art-image {
+  display: none;
+}
+
+.banner .slider .item .art-print {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 16px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  opacity: 0.74;
+  transition: opacity 280ms ease, transform 280ms ease, filter 280ms ease;
+}
+
+.banner .slider .item.is-center .art-print {
+  opacity: 1;
+  transform: translateZ(0) scale(1.045);
+  filter:
+    drop-shadow(0 0 16px rgba(34, 211, 238, 0.65))
+    drop-shadow(0 0 26px rgba(14, 165, 233, 0.42));
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-12deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-12deg) rotateY(360deg);
+  }
+}
+
+.banner .content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1400px, 100vw);
+  height: max-content;
+  padding: 0 0.9rem 0.6rem;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.banner .content .model {
+  display: none;
+}
+
+.banner .item .art-label {
+  display: none;
 }
 
 .art-piece {
@@ -1568,6 +1716,18 @@ body {
   .museum-wall {
     padding: 2rem;
   }
+
+  .banner {
+    --slider-w: clamp(120px, 22vw, 180px);
+    --slider-h: clamp(160px, 30vw, 240px);
+    --ring-depth: clamp(180px, 34vw, 320px);
+    --slider-top: 8%;
+    min-height: clamp(460px, 72vh, 680px);
+  }
+
+  .gallery-free {
+    margin-top: 1.25rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1621,6 +1781,52 @@ body {
 
   .visit-card {
     padding: 1.5rem;
+  }
+
+  .banner {
+    --slider-w: clamp(96px, 30vw, 130px);
+    --slider-h: clamp(138px, 42vw, 180px);
+    --ring-depth: clamp(102px, 26vw, 170px);
+    --slider-top: 14%;
+    min-height: clamp(420px, 62vh, 560px);
+  }
+
+  .banner .slider {
+    animation-duration: 14s;
+  }
+
+  .banner .slider .item .art-print {
+    border-radius: 12px;
+  }
+
+  .art-frame.art-trigger {
+    touch-action: manipulation;
+  }
+
+  .banner .content .model {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .museum-wall {
+    padding: 1.15rem;
+  }
+
+  .banner {
+    --slider-w: 86px;
+    --slider-h: 122px;
+    --ring-depth: 88px;
+    --slider-top: 16%;
+    min-height: clamp(360px, 56vh, 460px);
+  }
+
+  .banner .slider {
+    animation-duration: 12s;
+  }
+
+  .banner .content {
+    padding-bottom: 0.3rem;
   }
 }
 
@@ -1778,6 +1984,24 @@ body {
     padding: 0.6rem;
   }
 
+  .banner .slider {
+    animation: none !important;
+    position: static !important;
+    transform: none !important;
+    display: grid !important;
+    width: 100% !important;
+    height: auto !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .banner .slider .item {
+    position: static !important;
+    transform: none !important;
+  }
+
   .gallery-page .art-frame::after {
     inset: 6px;
   }
@@ -1797,4 +2021,45 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Flat UI override: keep palette, remove borders and shadows site-wide */
+:root {
+  --border: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+.card,
+.timeline-card,
+.stat-card,
+.contact-card,
+.art-piece,
+.art-frame,
+.art-label,
+.lightbox-dialog,
+.lightbox-frame,
+.chatbot-panel,
+.chatbot-toggle,
+.primary-button,
+.secondary-button,
+.ghost-button,
+.lang-button,
+.nav a,
+.badge,
+.tag-row span,
+.visit-card,
+.section-head,
+.error-card {
+  border: none !important;
 }

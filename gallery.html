@@ -64,7 +64,9 @@
 
       <nav class="nav" aria-label="Primary">
         <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="index.html#projects">Projects</a>
         <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="newstep.html">NewSteps</a>
       </nav>
       <div class="lang-toggle" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="lang-button">EN</button>
@@ -80,33 +82,39 @@
           <h2 data-i18n="gallery_title">Project Gallery</h2>
           <a class="secondary-button" href="Po1.pdf" download data-i18n="cta_download">Download PDF</a>
         </div>
-        <div class="museum-wall">
-          <div class="museum-grid">
-            <figure class="art-piece" style="--art-image: url('gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg');">
-              <button class="art-frame art-trigger" type="button" aria-label="Open Portrait Showcase">
-                <div class="art-image" role="img" aria-label="Portrait showcase"></div>
-                <img class="art-print" src="gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg"
-                  alt="Monster Energy Drink Manipulation" loading="lazy" decoding="async" />
-              </button>
-              <figcaption class="art-label">
-                <span class="art-title">Monster Energy Drink Manipulation</span>
-                <span class="art-meta">Nomination in MAP</span>
-                <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
-              </figcaption>
-            </figure>
+        <div class="gallery-free">
+          <div class="banner gallery-banner">
+            <div class="slider" data-rotating-slider style="--quantity: 2;" aria-label="3D rotating gallery">
+              <figure class="item art-piece" style="--position: 1; --art-image: url('gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg');">
+                <button class="art-frame art-trigger" type="button" aria-label="Open Portrait Showcase">
+                  <div class="art-image" role="img" aria-label="Portrait showcase"></div>
+                  <img class="art-print" src="gallery/KAUNGKHANTKO(fb-KaungKhantKo).jpg"
+                    alt="Monster Energy Drink Manipulation" loading="lazy" decoding="async" />
+                </button>
+                <figcaption class="art-label">
+                  <span class="art-title">Monster Energy Drink Manipulation</span>
+                  <span class="art-meta">Nomination in MAP</span>
+                  <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
+                </figcaption>
+              </figure>
 
-            <figure class="art-piece" style="--art-image: url('gallery/Photoshop.jpg');">
-              <button class="art-frame art-trigger" type="button" aria-label="Open Photoshop Study">
-                <div class="art-image" role="img" aria-label="Photoshop design"></div>
-                <img class="art-print" src="gallery/Photoshop.jpg" alt="Pyit Tine htaung" loading="lazy"
-                  decoding="async" />
-              </button>
-              <figcaption class="art-label">
-                <span class="art-title">Pyit Tine htaung</span>
-                <span class="art-meta">Nomination in MAI.</span>
-                <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
-              </figcaption>
-            </figure>
+              <figure class="item art-piece" style="--position: 2; --art-image: url('gallery/Photoshop.jpg');">
+                <button class="art-frame art-trigger" type="button" aria-label="Open Photoshop Study">
+                  <div class="art-image" role="img" aria-label="Photoshop design"></div>
+                  <img class="art-print" src="gallery/Photoshop.jpg" alt="Pyit Tine htaung" loading="lazy"
+                    decoding="async" />
+                </button>
+                <figcaption class="art-label">
+                  <span class="art-title">Pyit Tine htaung</span>
+                  <span class="art-meta">Nomination in MAI.</span>
+                  <a class="art-link secondary-button" href="#" aria-label="Nomination proof link">Nomination proof</a>
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="content" aria-hidden="true">
+              <div class="model"></div>
+            </div>
           </div>
         </div>
       </div>

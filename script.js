@@ -121,7 +121,12 @@ if (langButtons.length) {
 
 const registerServiceWorker = () => {
   if (!("serviceWorker" in navigator)) return;
-  navigator.serviceWorker.register("sw.js").catch(() => {});
+  navigator.serviceWorker
+    .register("sw.js", { updateViaCache: "none" })
+    .then(registration => {
+      registration.update().catch(() => {});
+    })
+    .catch(() => {});
 };
 
 registerServiceWorker();
@@ -396,6 +401,79 @@ const skillObserver = new IntersectionObserver(
 );
 
 skillBars.forEach(bar => skillObserver.observe(bar));
+
+const initRotatingSlider = () => {
+  const slider = document.querySelector("[data-rotating-slider]");
+  if (!slider) return;
+
+  const baseItems = Array.from(slider.querySelectorAll(".item"));
+  if (!baseItems.length) return;
+
+  const minSlides = 8;
+  if (baseItems.length < minSlides) {
+    for (let i = baseItems.length; i < minSlides; i += 1) {
+      const source = baseItems[i % baseItems.length];
+      const clone = source.cloneNode(true);
+      slider.appendChild(clone);
+    }
+  }
+
+  const items = Array.from(slider.querySelectorAll(".item"));
+
+  slider.style.setProperty("--quantity", String(items.length));
+
+  items.forEach((item, index) => {
+    item.style.setProperty("--position", String(index + 1));
+  });
+
+  const normalizeAngle = angle => {
+    let normalized = ((angle % 360) + 360) % 360;
+    if (normalized > 180) normalized -= 360;
+    return normalized;
+  };
+
+  const readSliderYRotation = () => {
+    const transform = getComputedStyle(slider).transform;
+    if (!transform || transform === "none" || !transform.startsWith("matrix3d(")) return 0;
+    const values = transform
+      .slice(9, -1)
+      .split(",")
+      .map(value => parseFloat(value.trim()));
+    if (values.length !== 16 || values.some(Number.isNaN)) return 0;
+    const m11 = values[0];
+    const m31 = values[8];
+    return Math.atan2(m31, m11) * (180 / Math.PI);
+  };
+
+  let activeCenterIndex = -1;
+  const updateCenterGlow = () => {
+    const sliderAngle = readSliderYRotation();
+    let closestIndex = 0;
+    let smallestDelta = Number.POSITIVE_INFINITY;
+
+    items.forEach((item, index) => {
+      const baseAngle = (index * 360) / items.length;
+      const facingAngle = normalizeAngle(baseAngle + sliderAngle);
+      const delta = Math.abs(facingAngle);
+      if (delta < smallestDelta) {
+        smallestDelta = delta;
+        closestIndex = index;
+      }
+      item.classList.remove("is-center");
+    });
+
+    if (closestIndex !== activeCenterIndex) {
+      activeCenterIndex = closestIndex;
+    }
+    items[activeCenterIndex]?.classList.add("is-center");
+
+    requestAnimationFrame(updateCenterGlow);
+  };
+
+  updateCenterGlow();
+};
+
+initRotatingSlider();
 
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector(".lightbox-image");
