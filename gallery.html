@@ -11,7 +11,7 @@
   <meta name="author" content="Kaung Khant Ko" />
   <meta name="robots" content="index, follow" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' data: https://upload.wikimedia.org https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+    content="default-src 'self'; img-src 'self' data: https://upload.wikimedia.org https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -141,6 +141,8 @@
       <p>© 2026 Kaung Khant Ko. All rights reserved.</p>
     </div>
   </footer>
+
+  <a class="honeypot-link" href="admin-console.html" aria-hidden="true" tabindex="-1" rel="nofollow">System Console</a>
 
   <div class="chatbot" id="chatbot-widget" aria-live="polite">
     <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel"

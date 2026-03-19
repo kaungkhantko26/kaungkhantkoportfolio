@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin-console.html
 
 Sitemap: https://kaungkhantko.top/sitemap.xml

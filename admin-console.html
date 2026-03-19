@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>System Console</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-src 'none'; upgrade-insecure-requests" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&amp;family=Sora:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="site-fixes.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Z1HYZ952T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-2Z1HYZ952T');
+
+    window.addEventListener('load', function () {
+      localStorage.setItem('security-honeypot-hit', new Date().toISOString());
+      if (typeof gtag === 'function') {
+        gtag('event', 'honeypot_hit', {
+          event_category: 'security',
+          event_label: window.location.pathname,
+          page_title: document.title
+        });
+      }
+    });
+  </script>
+</head>
+
+<body class="error-page">
+  <div class="error-bg"></div>
+  <div class="error-grid"></div>
+
+  <main class="error-shell">
+    <div class="error-card">
+      <span class="error-chip">MONITOR</span>
+      <h1>Unauthorized Console Access</h1>
+      <p>
+        This endpoint is monitored. No admin console is available here.
+        Your visit may be logged for security review.
+      </p>
+      <div class="error-actions">
+        <a class="primary-button" href="index.html">Return Home</a>
+        <a class="secondary-button" href="gallery.html">Open Gallery</a>
+      </div>
+      <div class="error-coordinates">
+        <span>Status: monitored</span>
+        <span>Route: decoy</span>
+        <span>Mode: honeypot</span>
+      </div>
+    </div>
+  </main>
+
+  <button type="button" class="theme-toggle theme-toggle--floating" data-theme-toggle aria-label="Toggle color theme">Theme</button>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
