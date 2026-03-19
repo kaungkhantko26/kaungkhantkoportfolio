@@ -197,7 +197,7 @@ const initChatbot = () => {
       return "You can contact Kaung via email at kaungkkhant06@gmail.com or phone at +959889750033.";
     }
     if (query.includes("work") || query.includes("project") || query.includes("gallery")) {
-      return "Featured works include 'Monster Energy Drink Manipulation' and 'Pyit Tine htaung'. See the gallery for more visuals.";
+      return "Projects include NewSteps, Bee at bee.kaungkhantko.top, and featured gallery works like 'Monster Energy Drink Manipulation' and 'Pyit Tine htaung'.";
     }
     return "Ask me about: about, skills, programming, certifications, honors, experience, education, contact, or works.";
   };
