@@ -26,3 +26,17 @@ This website is a simple static HTML/CSS project, and may include:
 	•	HTML5
 	•	CSS3
 	• JS for interactions
+
+Deploy
+
+Use the local deploy script to publish updates without manually uploading files:
+
+```bash
+./deploy.sh
+```
+
+You can also pass a custom commit message:
+
+```bash
+./deploy.sh "Update portfolio content"
+```
