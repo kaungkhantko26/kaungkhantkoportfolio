@@ -2132,6 +2132,15 @@ body,
   gap: 0.55rem;
 }
 
+.theme-toggle--floating {
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  min-width: 150px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16) !important;
+}
+
 .theme-toggle::before {
   content: "";
   width: 0.85rem;
@@ -2203,6 +2212,14 @@ body,
 .visit-card {
   text-align: left;
   align-items: flex-start;
+}
+
+#projects .project-card {
+  min-height: 220px;
+}
+
+#projects .project-card .credential-link {
+  width: 100%;
 }
 
 .credential-link {
@@ -2436,6 +2453,14 @@ body[data-theme="dark"] .error-orbital .orbit {
   .section-head .secondary-button,
   .credential-link {
     width: 100%;
+  }
+
+  .theme-toggle--floating {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: auto;
+    min-width: 0;
   }
 
   .hero-actions {
