@@ -524,3 +524,167 @@ textarea,
     opacity: 1 !important;
   }
 }
+
+/* Final responsive alignment and theme system */
+:root {
+  --control-height: 46px;
+}
+
+body,
+.card,
+.page-links a,
+.btn,
+.theme-toggle,
+.receipt-upload-btn,
+.brand-row,
+.receipt-dropzone,
+.scenario,
+.projection-box,
+.compound-row,
+.advice {
+  transition: background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+.hero__content {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hero-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.page-links a,
+.theme-toggle,
+.btn,
+.receipt-upload-btn {
+  min-height: var(--control-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.theme-toggle {
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 0.55rem;
+}
+
+.theme-toggle::before {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #0ea5e9 100%);
+}
+
+.card,
+.scenario,
+.compound-row,
+.projection-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.card > * + *,
+.scenario > * + *,
+.compound-row > * + * {
+  margin-top: 0;
+}
+
+.action-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.btn {
+  width: 100%;
+}
+
+body[data-theme="light"] {
+  color-scheme: light;
+}
+
+body[data-theme="dark"] {
+  --bg: #081120;
+  --card: rgba(15, 26, 43, 0.88);
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, 0.16);
+  --brand: #2dd4bf;
+  --brand-soft: rgba(45, 212, 191, 0.12);
+  --good: #4ade80;
+  --bad: #fb7185;
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(96, 165, 250, 0.18), transparent 35%),
+    radial-gradient(circle at 92% 10%, rgba(45, 212, 191, 0.14), transparent 38%),
+    linear-gradient(135deg, #0b1323, #081120 48%, #0f172a);
+}
+
+body[data-theme="dark"] .brand-row,
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .receipt-dropzone,
+body[data-theme="dark"] .scenario--current,
+body[data-theme="dark"] .scenario--reduced,
+body[data-theme="dark"] .compound-row,
+body[data-theme="dark"] .projection-box,
+body[data-theme="dark"] .advice,
+body[data-theme="dark"] input,
+body[data-theme="dark"] select,
+body[data-theme="dark"] .page-links a,
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .btn-secondary,
+body[data-theme="dark"] .receipt-upload-btn {
+  background: rgba(15, 26, 43, 0.92);
+  color: var(--ink);
+}
+
+body[data-theme="dark"] .btn-primary {
+  background: linear-gradient(135deg, #14b8a6, #2563eb);
+  color: #eff6ff;
+}
+
+body[data-theme="dark"] .progress-track {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+body[data-theme="dark"] .compound-bar-track {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+body[data-theme="dark"] .page-links a:hover,
+body[data-theme="dark"] .theme-toggle:hover,
+body[data-theme="dark"] .btn:hover {
+  background: rgba(30, 41, 59, 0.96);
+}
+
+@media (max-width: 680px) {
+  .page-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .hero-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .theme-toggle {
+    width: 100%;
+  }
+
+  .action-box {
+    grid-template-columns: 1fr;
+  }
+}

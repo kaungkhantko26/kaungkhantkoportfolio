@@ -2,6 +2,9 @@ const STORAGE_KEY = "newsteps_data_v1";
 const SESSION_HISTORY_KEY = "newsteps_session_history_v1";
 const DAYS_PER_MONTH = 30;
 const GROWTH_RATE = 0.05;
+const THEME_STORAGE_KEY = "site-theme";
+const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
 
 const ids = [
   "income",
@@ -60,6 +63,60 @@ const defaultFormState = {};
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let expenseChart;
+
+function getStoredTheme() {
+  const saved = localStorage.getItem(THEME_STORAGE_KEY);
+  return saved === "light" || saved === "dark" ? saved : null;
+}
+
+function getResolvedTheme() {
+  return getStoredTheme() || (systemThemeQuery.matches ? "dark" : "light");
+}
+
+function updateThemeMeta(theme) {
+  if (!themeMeta) return;
+  themeMeta.setAttribute("content", theme === "dark" ? "#081120" : "#f5f8fc");
+}
+
+function updateThemeToggles(theme) {
+  const nextTheme = theme === "dark" ? "Light" : "Dark";
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.textContent = `${nextTheme} mode`;
+    button.setAttribute("aria-label", `Switch to ${nextTheme.toLowerCase()} mode`);
+    button.setAttribute("aria-pressed", String(theme === "dark"));
+  });
+}
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  updateThemeMeta(theme);
+  updateThemeToggles(theme);
+}
+
+function syncThemeWithSystem() {
+  if (getStoredTheme()) return;
+  applyTheme(systemThemeQuery.matches ? "dark" : "light");
+}
+
+function initThemeToggle() {
+  applyTheme(getResolvedTheme());
+
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-theme-toggle]");
+    if (!toggle) return;
+
+    const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+
+  if (typeof systemThemeQuery.addEventListener === "function") {
+    systemThemeQuery.addEventListener("change", syncThemeWithSystem);
+  } else if (typeof systemThemeQuery.addListener === "function") {
+    systemThemeQuery.addListener(syncThemeWithSystem);
+  }
+}
 
 function setAnimatedText(element, text) {
   if (!element) return;
@@ -800,6 +857,7 @@ function initRevealAnimations() {
 
 captureDefaultState();
 loadFromStorage();
+initThemeToggle();
 attachListeners();
 setupReceiptImport();
 initRevealAnimations();

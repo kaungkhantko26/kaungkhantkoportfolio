@@ -2067,3 +2067,391 @@ textarea,
 .error-card {
   border: none !important;
 }
+
+/* Final responsive alignment and theme system */
+:root {
+  --control-height: 46px;
+}
+
+body,
+.site-header,
+.card,
+.timeline-card,
+.stat-card,
+.highlight-panel,
+.chatbot-panel,
+.lightbox-dialog,
+.lightbox-frame,
+.error-card,
+.museum-wall,
+.museum-window,
+.art-label,
+.primary-button,
+.secondary-button,
+.credential-link,
+.lang-button,
+.theme-toggle,
+.ghost-button,
+.nav a {
+  transition: background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.lang-toggle {
+  flex-wrap: wrap;
+}
+
+.theme-toggle,
+.lang-button,
+.primary-button,
+.secondary-button,
+.credential-link,
+.ghost-button {
+  min-height: var(--control-height);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.theme-toggle {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 0.55rem;
+}
+
+.theme-toggle::before {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #1d4ed8 100%);
+}
+
+.hero-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  align-items: stretch;
+}
+
+.hero-actions > * {
+  width: 100%;
+}
+
+.section-head {
+  align-items: flex-end;
+}
+
+.section-head > :first-child {
+  flex: 1 1 280px;
+}
+
+.card-grid,
+.behance-columns,
+.contact-grid {
+  align-items: stretch;
+}
+
+.card,
+.timeline-card,
+.highlight-panel,
+.certificate-card,
+.honor-card,
+.behance-item,
+.visit-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.card h3,
+.timeline-card h3,
+.certificate-card h3,
+.honor-card h3,
+.behance-item h3,
+.highlight-panel h3 {
+  margin-bottom: 0;
+}
+
+.card p,
+.timeline-card p,
+.certificate-card p,
+.honor-card p,
+.behance-item p,
+.highlight-panel p {
+  margin: 0;
+}
+
+#projects .card,
+#certificates .card,
+#honors .card,
+.timeline-card,
+.behance-item,
+.visit-card {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.credential-link {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.contact-grid {
+  grid-template-columns: repeat(auto-fit, minmax(72px, 72px));
+  justify-content: center;
+}
+
+.contact-card {
+  min-height: 72px;
+}
+
+.contact-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.error-toolbar {
+  margin-bottom: 1rem;
+}
+
+body[data-theme="light"] {
+  color-scheme: light;
+}
+
+body[data-theme="dark"] {
+  --bg: #081120;
+  --surface: #0f1a2b;
+  --surface-strong: #162338;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #2dd4bf;
+  --accent-2: #60a5fa;
+  --accent-3: #1e293b;
+  --border: rgba(148, 163, 184, 0.16);
+  --shadow: 0 16px 38px rgba(2, 6, 23, 0.38);
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(96, 165, 250, 0.12), transparent 40%),
+    radial-gradient(circle at 0% 100%, rgba(45, 212, 191, 0.1), transparent 35%),
+    linear-gradient(180deg, #0b1323 0%, #081120 100%);
+}
+
+body[data-theme="dark"] .site-header,
+body[data-theme="dark"] .gallery-page .site-header {
+  background: rgba(8, 17, 32, 0.86);
+}
+
+body[data-theme="dark"] .brand,
+body[data-theme="dark"] .section h2,
+body[data-theme="dark"] .hero-copy h1,
+body[data-theme="dark"] .chatbot-title,
+body[data-theme="dark"] .lightbox-title,
+body[data-theme="dark"] .window-subtitle {
+  color: var(--text);
+}
+
+body[data-theme="dark"] .section p,
+body[data-theme="dark"] .lead,
+body[data-theme="dark"] .timeline-date,
+body[data-theme="dark"] .stat-label,
+body[data-theme="dark"] .chatbot-subtitle,
+body[data-theme="dark"] .art-meta,
+body[data-theme="dark"] .error-card p,
+body[data-theme="dark"] .error-coordinates,
+body[data-theme="dark"] .window-title,
+body[data-theme="dark"] .window-stats {
+  color: var(--muted) !important;
+}
+
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .timeline-card,
+body[data-theme="dark"] .stat-card,
+body[data-theme="dark"] .highlight-panel,
+body[data-theme="dark"] .visit-card,
+body[data-theme="dark"] .museum-wall,
+body[data-theme="dark"] .art-label,
+body[data-theme="dark"] .chatbot-panel,
+body[data-theme="dark"] .chatbot-bubble.bot,
+body[data-theme="dark"] .lightbox-dialog,
+body[data-theme="dark"] .lightbox-frame,
+body[data-theme="dark"] .error-card,
+body[data-theme="dark"] .portrait-frame,
+body[data-theme="dark"] .behance-item,
+body[data-theme="dark"] .certificate-card,
+body[data-theme="dark"] .honor-card {
+  background: rgba(15, 26, 43, 0.88);
+}
+
+body[data-theme="dark"] .secondary-button,
+body[data-theme="dark"] .credential-link,
+body[data-theme="dark"] .lang-button,
+body[data-theme="dark"] .theme-toggle,
+body[data-theme="dark"] .ghost-button,
+body[data-theme="dark"] .chatbot-input,
+body[data-theme="dark"] .chatbot-close,
+body[data-theme="dark"] .lightbox-close {
+  background: rgba(15, 26, 43, 0.96);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .primary-button,
+body[data-theme="dark"] .chatbot-send,
+body[data-theme="dark"] .contact-icon {
+  background: linear-gradient(135deg, #14b8a6 0%, #2563eb 100%);
+  color: #eff6ff;
+}
+
+body[data-theme="dark"] .nav a.active,
+body[data-theme="dark"] .nav a:hover,
+body[data-theme="dark"] .lang-button:hover {
+  background: rgba(96, 165, 250, 0.18);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .tags li,
+body[data-theme="dark"] .tag-row span,
+body[data-theme="dark"] .badge,
+body[data-theme="dark"] .cert-tag,
+body[data-theme="dark"] .honor-tag,
+body[data-theme="dark"] .chatbot-bubble.user {
+  background: rgba(30, 41, 59, 0.96);
+  color: var(--text);
+}
+
+body[data-theme="dark"].gallery-page {
+  background-color: #081120;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent 0 100px,
+      rgba(96, 165, 250, 0.07) 100px 101px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 100px,
+      rgba(45, 212, 191, 0.07) 100px 101px
+    ),
+    radial-gradient(circle at 18% 10%, rgba(96, 165, 250, 0.14), transparent 42%),
+    radial-gradient(circle at 82% 85%, rgba(45, 212, 191, 0.1), transparent 38%);
+}
+
+body[data-theme="dark"].gallery-page::before {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(15, 23, 42, 0.55), transparent 65%),
+    linear-gradient(160deg, rgba(8, 17, 32, 0.55), rgba(15, 26, 43, 0.5));
+}
+
+body[data-theme="dark"] .museum-window {
+  background: linear-gradient(160deg, rgba(8, 17, 32, 0.96), rgba(22, 35, 56, 0.94));
+  color: var(--text);
+}
+
+body[data-theme="dark"] .lightbox {
+  background: rgba(2, 6, 23, 0.82);
+}
+
+body[data-theme="dark"].error-page {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.14), transparent 40%),
+    linear-gradient(180deg, #0b1323, #081120);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .error-bg {
+  background:
+    radial-gradient(circle at 70% 20%, rgba(37, 99, 235, 0.18), transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(20, 184, 166, 0.18), transparent 45%);
+}
+
+body[data-theme="dark"] .error-grid {
+  background-image:
+    linear-gradient(120deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(60deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+body[data-theme="dark"] .error-chip {
+  background: rgba(96, 165, 250, 0.2);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .error-orbital .planet {
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+}
+
+body[data-theme="dark"] .error-orbital .orbit {
+  border-color: rgba(148, 163, 184, 0.24);
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 0.55rem;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-controls,
+  .lang-toggle {
+    width: 100%;
+  }
+
+  .header-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .lang-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav {
+    gap: 0.45rem;
+  }
+
+  .nav a,
+  .theme-toggle,
+  .section-head .secondary-button,
+  .credential-link {
+    width: 100%;
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .section-head {
+    align-items: stretch;
+  }
+
+  .card,
+  .timeline-card,
+  .highlight-panel,
+  .visit-card,
+  .museum-wall,
+  .error-card {
+    padding: 1.3rem;
+  }
+}
