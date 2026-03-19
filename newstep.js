@@ -5,6 +5,20 @@ const GROWTH_RATE = 0.05;
 const THEME_STORAGE_KEY = "site-theme";
 const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
 const themeMeta = document.querySelector('meta[name="theme-color"]');
+const withBody = callback => {
+  if (document.body) {
+    callback(document.body);
+    return;
+  }
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+      if (document.body) callback(document.body);
+    },
+    { once: true }
+  );
+};
 
 const ids = [
   "income",
@@ -88,7 +102,9 @@ function updateThemeToggles(theme) {
 }
 
 function applyTheme(theme) {
-  document.body.dataset.theme = theme;
+  withBody((body) => {
+    body.dataset.theme = theme;
+  });
   document.documentElement.style.colorScheme = theme;
   updateThemeMeta(theme);
   updateThemeToggles(theme);
@@ -106,7 +122,8 @@ function initThemeToggle() {
     const toggle = event.target.closest("[data-theme-toggle]");
     if (!toggle) return;
 
-    const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    const currentTheme = document.body?.dataset.theme || getResolvedTheme();
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
     localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
     applyTheme(nextTheme);
   });
