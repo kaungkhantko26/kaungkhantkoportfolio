@@ -1,0 +1,144 @@
+:root {
+  --ns-fix-bg: #f5f8fc;
+  --ns-fix-surface: rgba(255, 255, 255, 0.95);
+  --ns-fix-text: #10253a;
+  --ns-fix-muted: #5b7288;
+  --ns-fix-border: rgba(15, 41, 64, 0.12);
+  --ns-fix-accent: #0f766e;
+  --ns-fix-accent-2: #2563eb;
+  --ns-fix-shadow: 0 18px 40px rgba(15, 41, 64, 0.08);
+}
+
+body {
+  background: linear-gradient(180deg, #f8fbff 0%, var(--ns-fix-bg) 100%) !important;
+  color: var(--ns-fix-text) !important;
+}
+
+body[data-theme="dark"] {
+  --ns-fix-bg: #081120;
+  --ns-fix-surface: rgba(15, 23, 42, 0.94);
+  --ns-fix-text: #e2e8f0;
+  --ns-fix-muted: #94a3b8;
+  --ns-fix-border: rgba(148, 163, 184, 0.18);
+  --ns-fix-accent: #2dd4bf;
+  --ns-fix-accent-2: #60a5fa;
+  --ns-fix-shadow: 0 18px 40px rgba(2, 6, 23, 0.32);
+  background: linear-gradient(180deg, #0b1323 0%, #081120 100%) !important;
+  color: var(--ns-fix-text) !important;
+}
+
+.hero-controls .theme-toggle {
+  display: none !important;
+}
+
+.theme-toggle,
+.page-links a,
+.btn,
+.receipt-upload-btn {
+  min-height: 46px !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 999px !important;
+  border: 1px solid var(--ns-fix-border) !important;
+  background: var(--ns-fix-surface) !important;
+  color: var(--ns-fix-text) !important;
+  box-shadow: var(--ns-fix-shadow) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--ns-fix-accent), var(--ns-fix-accent-2)) !important;
+  color: #eff6ff !important;
+  border-color: transparent !important;
+}
+
+.theme-toggle--floating {
+  position: fixed !important;
+  left: 1rem !important;
+  bottom: 1rem !important;
+  z-index: 60 !important;
+  min-width: 152px !important;
+}
+
+.theme-toggle::before {
+  content: "" !important;
+  width: 0.85rem !important;
+  height: 0.85rem !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #f59e0b, var(--ns-fix-accent-2)) !important;
+}
+
+.hero__content,
+.container {
+  width: min(1000px, calc(100vw - 1.5rem)) !important;
+}
+
+.hero__content {
+  display: grid !important;
+  gap: 1rem !important;
+}
+
+.page-links {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.65rem !important;
+}
+
+.card,
+.brand-row,
+.receipt-dropzone,
+.scenario,
+.projection-box,
+.compound-row,
+.advice,
+input,
+select {
+  background: var(--ns-fix-surface) !important;
+  color: var(--ns-fix-text) !important;
+  border: 1px solid var(--ns-fix-border) !important;
+  box-shadow: var(--ns-fix-shadow) !important;
+}
+
+.card,
+.scenario,
+.compound-row,
+.projection-box {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.8rem !important;
+}
+
+.muted,
+.subtitle,
+.projection-box span,
+.compound-row__head {
+  color: var(--ns-fix-muted) !important;
+}
+
+.action-box {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 0.75rem !important;
+}
+
+.btn {
+  width: 100% !important;
+}
+
+@media (max-width: 680px) {
+  .page-links,
+  .action-box {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+
+  .theme-toggle--floating {
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    bottom: 0.75rem !important;
+    width: auto !important;
+  }
+}
