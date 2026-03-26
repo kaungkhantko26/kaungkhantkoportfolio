@@ -28,7 +28,7 @@ export default function Home() {
         />
         <meta
           property="og:title"
-          content="Kaung Khant Ko - Frontend Developer"
+          content="Kaung Khant Ko"
         />
         <meta
           property="og:description"
