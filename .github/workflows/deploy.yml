@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: ./deploy.sh
+        run: chmod +x ./deploy.sh && bash ./deploy.sh
         env:
           NEXT_PUBLIC_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_PROJECT_ID }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
