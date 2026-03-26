@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 100" fill="none">
+  <defs>
+    <linearGradient id="m-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe9db" />
+      <stop offset="100%" stop-color="#ffd7bf" />
+    </linearGradient>
+    <linearGradient id="m-bowl" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e32811" />
+      <stop offset="100%" stop-color="#ff6a37" />
+    </linearGradient>
+    <linearGradient id="m-broth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd466" />
+      <stop offset="100%" stop-color="#ffa600" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="100" fill="#fff1e7" />
+  <g transform="translate(368 18)">
+    <rect width="64" height="64" rx="16" fill="url(#m-bg)" />
+    <path d="M19 35c1 8 6.8 14 13 14s12-6 13-14H19z" fill="url(#m-bowl)" />
+    <ellipse cx="32" cy="34.5" rx="14" ry="4.8" fill="url(#m-broth)" />
+    <path d="M25 32.5c1.4-1.6 2.9-1.6 4.3 0s2.9 1.6 4.3 0 2.9-1.6 4.3 0" fill="none" stroke="#fff9f4" stroke-linecap="round" stroke-width="1.8" />
+    <path d="M24 36c1.4-1.6 2.9-1.6 4.3 0s2.9 1.6 4.3 0 2.9-1.6 4.3 0" fill="none" stroke="#fff9f4" stroke-linecap="round" stroke-width="1.8" />
+    <circle cx="41.5" cy="25" r="4.2" fill="#fff4d8" />
+    <circle cx="41.5" cy="25" r="2.2" fill="#ffb52a" />
+    <path d="M17 14h16v3H17z" fill="#f7c135" />
+    <path d="M17 17h16v3H17z" fill="#3ba154" />
+    <path d="M17 20h16v3H17z" fill="#e32811" />
+    <path d="M24.8 15.6l.9 2 .1.2 2.1.2-1.6 1.4-.1.1.5 2-1.8-1-.2-.1-1.8 1 .5-2-.1-.1-1.6-1.4 2.1-.2.1-.2.9-2z" fill="#fff" />
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+.wrapper {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: var(--padding);
+}
+
+.inner {
+    max-width: 500px;
+    text-align: center;
+}
+
+.home {
+    background-color: var(--clr-dark);
+    padding: 5px 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 1rem 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+}
+
+.image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+}

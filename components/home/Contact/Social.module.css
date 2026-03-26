@@ -1,0 +1,37 @@
+.list {
+    display: flex;
+    list-style: none;
+    margin-top: 1rem;
+    gap: .5rem;
+    --size: 30px;
+}
+
+.list svg {
+    display: block;
+    width: var(--size);
+    height: var(--size);
+    fill: var(--clr-dark-70);
+    transition: transform 100ms ease;
+}
+
+.list a:hover svg {
+    transform: scale(1.1);
+}
+
+@media (min-width: 680px) {
+    .list {
+        justify-content: center;
+        margin-top: unset;
+        gap: 1rem;
+    }
+
+    .list svg {
+        fill: white;
+    }
+}
+
+@media (min-width: 1100px) {
+    .list {
+        --size: 40px;
+    }
+}

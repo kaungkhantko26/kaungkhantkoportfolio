@@ -1,0 +1,62 @@
+[
+  {
+    "number": "01",
+    "title": "BEE",
+    "lang": "Next.js",
+    "image": "banner.png",
+    "imagePath": "/images/bee-banner.svg",
+    "imageFit": "cover",
+    "href": "https://bee.kaungkhantko.top/",
+    "slug": "fem-gallery",
+    "text1": "FEM Gallery is a project, made with React to showcase all of my completed challenges from frontendmentor.io. It currently has 25 projects.",
+    "text2": "I got this idea from a random person I found on frontendmentor. I took a look at his completed challenges and they're all built in one big react app. That gave me the idea to build a seperate website where I put all my completed challenges, sort of like a gallery.",
+    "text3": "For the design, I tried something interesting by trying to use only two colors and it turned out better than I expected. I also tried adding different interesting layouts to make it look a bit more unique.",
+    "live": "https://bee.kaungkhantko.top/",
+    "repo": "https://github.com/K4UNG/fem-challenge-gallery"
+  },
+  {
+    "number": "02",
+    "title": "Hexora",
+    "lang": "Next.js",
+    "image": "banner.png",
+    "imagePath": "/images/hexora-banner.svg",
+    "imageFit": "cover",
+    "href": "https://hexora.kaungkhantko.top/",
+    "slug": "khanner-blog",
+    "text1": "Khanner Blog is a blog site I made for one of my friends, using Django. It's also the first project I collaborated with someone, another friend of mine.",
+    "text2": "I was taking CS50 Web course at the time and one of the lectures was about Django. I watched another course on Django from YouTube to finish the asignment. It was more than enough just for a small project so I offered my friend a blog site.",
+    "text3": "The design was very basic. It has featured posts accessible from both home and blogs page. It also has latest posts section, all blogs page with pagination, categories section and login signup forms. I kept it all fairly simple.",
+    "live": "https://hexora.kaungkhantko.top/",
+    "repo": ""
+  },
+  {
+    "number": "03",
+    "title": "Family Memes Just For Fun",
+    "lang": "React",
+    "image": "banner.png",
+    "imagePath": "/images/familymemes-banner.svg",
+    "imageFit": "cover",
+    "href": "https://familymemesjustforfun.site/index.html",
+    "slug": "cooking-bud",
+    "text1": "Cooking Bud is the ultimate cooking recipe hub for homecooks. It's built using React and Sponacular API.",
+    "text2": "I randomly got an idea to build a recipe app so here it is. It has a feature where you can choose you ingredients and search for recipes with those ingredients. It also has recipe recomendations that refresh automatically twice a day.",
+    "text3": "I kept the design clean and simple. It has a hero section, section with different cuisines, recommended recipes, ingredient selection page, result page and of course, recipe detail page.",
+    "live": "https://cookingbud.netlify.app",
+    "repo": "https://github.com/K4UNG/CookingBud"
+  },
+  {
+    "number": "04",
+    "title": "Mohinga Morning House",
+    "lang": "Nextjs",
+    "image": "banner.png",
+    "imagePath": "/images/mohinga-banner.svg",
+    "imageFit": "cover",
+    "href": "https://mohingamorninghouse.kaungkhantko.top/",
+    "slug": "ssjyp-events",
+    "text1": "SSJYP is a schedule reminder for a rhythm game called, Superstart JYPNation. It displays the active events, bonus rewards and much more all in one place.",
+    "text2": "When I started learning programming with Python, I did a mini script version of this but it was full of bugs. But now that I have the knowledge to build a website, I figured it'd only be right to build an app for this.",
+    "text3": "For the design, I mostly kept it simple while keeping all the pages accessible. You can view the active events, song bonus rewards in the home page and other information about the game in different pages.",
+    "live": "https://ssjyp.vercel.app",
+    "repo": "https://github.com/K4UNG/ssjyp-events"
+  }
+]

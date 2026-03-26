@@ -1,0 +1,110 @@
+.banner span {
+    width: 100% !important;
+    height: 150px !important;
+}
+
+.banner img {
+    opacity: .6;
+}
+
+.project span {
+    background-color: var(--clr-dark-50) !important;
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    margin: .25rem 0 .7rem;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: .9rem;
+    margin: 0 1rem;
+}
+
+.link:hover {
+    font-weight: 700;
+}
+
+.link svg {
+    width: 15px;
+}
+
+.body {
+    padding: var(--padding);
+    max-width: 800px;
+    margin: auto;
+}
+
+.body p {
+    margin: 1rem 0;
+}
+
+.body span {
+    height: auto;
+    width: 100%;
+}
+
+@media (min-width: 680px) {
+    .body p {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 980px) {
+    .title {
+        font-size: 5rem;
+        font-weight: 900;
+    }
+
+    .body {
+        max-width: 900px;
+    }
+
+    .body p {
+        margin: 1.5rem;
+    }
+
+    .link {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0 2rem;
+    }
+
+    .banner span {
+        height: 300px !important;
+    }
+}
+
+@media (min-width: 1700px) {
+    .body {
+        max-width: 1200px;
+    }
+
+    .body p {
+        font-size: 1.5rem;
+    }
+
+    .link {
+        font-size: 1.2rem;
+    }
+
+    .title {
+        font-size: 7rem;
+    }
+}

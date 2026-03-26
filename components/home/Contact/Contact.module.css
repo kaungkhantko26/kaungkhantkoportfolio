@@ -1,0 +1,171 @@
+.contact {
+    padding: 1rem var(--padding) 2rem;
+}
+
+.image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.image span {
+    display: none !important;
+}
+
+.overlay {
+    display: none;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: var(--h2);
+    line-height: .95;
+}
+
+.title>svg {
+    width: 100px;
+    display: none;
+}
+
+.control {
+    position: relative;
+}
+
+.control label {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    transition-property: left top bottom font-size;
+    transition: 200ms ease;
+}
+
+.control:last-of-type label {
+    bottom: 10px;
+}
+
+.control input,
+.control textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid var(--clr-dark-70);
+    margin-top: 2rem;
+    padding: 5px;
+}
+
+.control input:focus,
+.control textarea:focus {
+    outline: 0;
+}
+
+.button {
+    font-weight: 500;
+    color: white;
+    background-color: var(--clr-dark);
+    padding: 3px 1rem;
+    text-transform: uppercase;
+    border-radius: 15px;
+    margin-top: 1rem;
+    transition: letter-spacing 150ms ease, opacity 150ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+    letter-spacing: 2px;
+}
+
+.button.loading {
+    opacity: .4;
+    pointer-events: none;
+}
+
+.control label.focus {
+    font-size: .8rem;
+    left: .3rem;
+    bottom: calc(100% - 2rem)
+}
+
+.error {
+    color: var(--clr-red-error);
+    font-size: .9rem;
+    margin-top: 1rem;
+}
+
+.success {
+    color: var(--clr-green-success);
+    font-size: .9rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 680px) {
+    .contact {
+        padding: 0 var(--padding);
+        margin-top: 5rem;
+    }
+
+    .image span {
+        display: block !important;
+        width: 100% !important;
+        height: min(72vh, 720px) !important;
+    }
+
+    .image img {
+        object-fit: cover !important;
+        filter: saturate(0%) contrast(1.05);
+        transform: scale(1.02);
+    }
+
+    .title {
+        position: absolute;
+        color: white;
+        width: min(80%, 760px);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-weight: 900;
+        font-size: clamp(2.5rem, 7vw, 6rem);
+    }
+
+    .overlay {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--clr-dark-50);
+    }
+
+    .title>svg {
+        display: unset;
+    }
+}
+
+@media (min-width: 1100px) {
+    .contact {
+        max-width: 1400px;
+        margin-inline: auto;
+    }
+
+    .image span {
+        height: min(80vh, 860px) !important;
+    }
+
+    .title>svg {
+        width: 150px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .title {
+        font-size: clamp(3rem, 6vw, 7rem);
+    }
+}
+
+@media (min-width: 2100px) {
+    .title {
+        font-size: clamp(3rem, 5vw, 8rem);
+    }
+}

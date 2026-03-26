@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  cursor: none;
+}
+
+img {
+  width: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: var(--clr-dark);
+}
+
+:root {
+  --clr-light: #ccc;
+  --clr-null: #9f9f9f;
+  --clr-null-50: #b8b8b8;
+  --clr-dark: #1e1e1e;
+  --clr-dark-10: rgba(30, 30, 30, 0.1);
+  --clr-dark-30: rgba(30, 30, 30, 0.3);
+  --clr-dark-50: rgba(30, 30, 30, 0.5);
+  --clr-dark-70: rgba(30, 30, 30, 0.7);
+  --clr-red-error: #ca0000;
+  --clr-green-success: #008000;
+
+  --padding: .75rem;
+  --h2: 10vw;
+  scroll-behavior: smooth;
+}
+
+:root.smooth {
+  scroll-behavior: unset;
+}
+
+::selection {
+  background-color: var(--clr-dark);
+  color: var(--clr-light)
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--clr-dark-30);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--clr-dark-50);
+  border-radius: 5px;
+}
+
+body {
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  overflow-x: hidden;
+  position: relative;
+}
+
+@media (min-width: 620px) {
+  :root {
+    --padding: 1rem;
+  }
+}
+
+@media (min-width: 980px) {
+  :root {
+    --padding: 2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --padding: 3rem;
+  }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --padding: 4rem;
+  }
+}
