@@ -24,7 +24,7 @@ export default function Home() {
         <title>Home | Kaung Khant Ko</title>
         <meta
           name="description"
-          content="An aspiring juinor frontend developer, UI/UX designer from Myanmar."
+          content="A junior creative developer, computer science student"
         />
         <meta
           property="og:title"
@@ -32,7 +32,7 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="An aspiring juinor frontend developer, UI/UX designer from Myanmar."
+          content="A junior creative developer, computer science student"
         />
         {/* <meta property="og:image" content="" /> */}
       </Head>
