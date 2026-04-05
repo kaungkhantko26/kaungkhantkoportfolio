@@ -24,13 +24,7 @@ export default function About() {
             </h2>
             <div className="space-y-6 text-xl text-gray-800 dark:text-gray-200 leading-9">
               <p>
-                {profile.name} works at the intersection of visual communication and software, combining junior graphic design experience with ongoing computer science study.
-              </p>
-              <p>
-                The attached LinkedIn resume shows hands-on work in branding, posters, packaging, and social media graphics, alongside a strong interest in TypeScript and practical digital problem solving.
-              </p>
-              <p>
-                This portfolio is now structured as a real profile hub: direct contact, downloadable resume, current education, professional roles, certifications, and recognitions in one place.
+                Creative Junior Graphic Designer and student at Auston College with strong skills in visual design, branding, and programming. Experienced in social media, packaging, and poster design, with a strong interest in combining technology and design to create effective digital solutions. Brings a responsible and reliable work ethic, strong creative problem solving abilities, and effective team collaboration skills.
               </p>
             </div>
           </motion.div>
